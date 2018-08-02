@@ -33,6 +33,7 @@ public class LoginServlet extends HttpServlet {
 		String page="login.jsp";
 		// フォワード処理
 		RequestDispatcher rd=req.getRequestDispatcher(page);
+		rd.forward(req, res);
 
 	}
 
