@@ -3,9 +3,102 @@
 <head>
 <meta charset="UTF-8">
 <title>ログイン画面</title>
+<style type="text/css">
+* {
+	margin: 0;
+	padding: 0;
+	color: #4E3E2C;
+	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+	line-height: 1.5;
+	font-size: 1rem;
+	text-decoration: none;
+	list-style-type: none;
+}
+body {
+	background-image: url(img/top.png);
+	background-repeat: no-repeat;
+	height: 490px;
+	width: 736px;
+}
+header {
+	background-image: url(img/top.png);
+	height: 490px;
+}
+h1, h2, h3, h4 {
+	margin-bottom: 1.5em;
+}
+h1 {
+	font-size: 1.25rem;
+}
+header p {
+	text-indent: 1em;
+}
+nav {
+	text-decoration: none;
+	background-color: #399634;
+	overflow: hidden;
+	text-align: center;
+}
+nav ul li {
+	float: left;
+	width: 111px;
+	border-right: 1px solid #FFFFFF;
+	padding-right: 8px;
+	padding-left: 8px;
+}
+nav li a {
+	color: #FFFFFF;
+	display: block;
+	width: 111px;
+	margin-left: -8px;
+	padding-right: 8px;
+	padding-left: 8px;
+	
+
+}
+nav a:hover {
+	background-color: #246021;
+}
+article {
+	float: none;
+	clear: left;
+}
+article p {
+	padding-left: 1em;
+}
+h2 {
+	font-size: 1.1rem;
+}
+</style>
 </head>
 <body>
-
-
+<div id="contener">
+  <header>
+    <h1>Accountテストページ</h1>
+    <p>Accountテストページにようこそ。</p>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="login.jsp">ログイン</a></li>
+      <li><a href="#">ユーザー登録 </a></li>
+    </ul>
+  </nav>
+  <article>
+    <h2>このページの説明</h2>
+    <p>このページは練習の為に作成されたページです。DW　CCとHTML５の練習も兼ねています。<br>
+      それにしても操作に慣れない。特にDWのテキストも購入しないとダメですね。ツールバーが使いにくくて泣けますよ。クラッシックワークスペースは残してくれればいいのにと毎回思います。<br>
+      本棚に置いてある背表紙８センチくらいあるCS６のテキスト買うんじゃなかった。失敗失敗。もう本棚落ちそう。電子書籍もいいけど、直感的に頭に入ってこないので、印刷物のが嬉しい。どっちもあれば最高。高いけど。<br>
+      DIVが入れ安くなったのは最高かも。</p>
+    <h2>ログインについて</h2>
+    <p><img src="img/2.png" width="448" height="298" alt=""/></p>
+    <p>ユーザー登録している人だけがAccountテストアプリにログイン出来ちゃいます。ログインにはパスワードとIDが必要です。未登録の人はユーザー登録してね。</p>
+    <h2>ユーザー登録について</h2>
+    <p>ユーザー登録できるようにします。ユーザー登録には名前、パスワード、メールアドレス、年齢の入力が必要になるので準備して下さいね。登録したところで現在の段階でログインしかできない仕様です。</p>
+    <p><img src="img/3.png" width="448" height="273" alt=""/></p>
+  </article>
+  <footer>
+    <p>Copyright(c)2018 honaetsu,All rights reserved.lol</p>
+  </footer>
+</div>
 </body>
 </html>
