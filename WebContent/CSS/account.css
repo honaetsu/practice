@@ -27,6 +27,7 @@ header {
 h1 {
 	font-size: 1.25rem;
 	text-indent: 1em;
+	border-bottom: 1px solid #4E3E2C;
 }
 
 header p {
@@ -61,7 +62,7 @@ nav a:hover {
 article {
 	float: none;
 	clear: left;
-	overflow-y: hidden;
+	overflow: hidden;
 }
 h2 {
 	font-size: 1.1rem;
