@@ -2,7 +2,7 @@
 public class Account {
 
 	// メンバ
-	private String userId;
+	private int userId;
 	private String pass;
 	private String mail;
 	private String name;
@@ -14,11 +14,11 @@ public class Account {
 	// アクセッサメソッド
 	private int age;
 
-	public String getUserId() {
+	public int getUserId() {
 		return userId;
 	}
 
-	public void setUserId(String userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 
