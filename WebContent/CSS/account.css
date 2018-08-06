@@ -61,6 +61,7 @@ nav a:hover {
 article {
 	float: none;
 	clear: left;
+	overflow-y: hidden;
 }
 h2 {
 	font-size: 1.1rem;
@@ -87,5 +88,9 @@ article p {
 }
 footer {
 	clear: both;
+	background-color: #68C963;
 
+}
+footer p  {
+	text-align: center;
 }
