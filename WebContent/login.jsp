@@ -23,8 +23,8 @@ dl {
 }
 .formDright {
 	width: auto;
-	float: right;
 	text-align: center;
+	padding-right: 18px;
 }
 </style>
 </head>
@@ -68,6 +68,5 @@ dl {
   </section>
   <footer> <small>Copyright(c)2018 honaetsu,All rights reserved.lol</small> </footer>
 </div>
-<p>&nbsp;</p>
 </body>
 </html>
