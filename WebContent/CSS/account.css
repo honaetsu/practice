@@ -90,7 +90,12 @@ article p {
 footer {
 	clear: both;
 	background-color: #68C963;
-}
-footer p {
 	text-align: center;
+}
+small{
+	width: 80%;
+
+}
+section {
+	background-color: #FFFBDA;
 }
