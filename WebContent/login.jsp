@@ -41,28 +41,28 @@ dl {
     </ul>
   </nav>
   <section>
-    <form>
+    <form method="post" action="HelloGithub/Login">
       <h2>ログイン画面</h2>
       <div id="formD">
         <dl>
           <dt>ログインＩＤを入力</dt>
           <dd>
-            <input type="text">
+            <input type="text" name="pId">
           </dd>
           <dt>ログインパスワードを入力</dt>
           <dd>
-            <input type="text">
+            <input type="text" name="pPass">
           </dd>
         </dl>
         <p>
           <input type="reset">
-          <input type="submit">
+          <input type="submit" value="送信">
         </p>
       </div>
       <!--エラーメッセージをここで表示予定 -->
       <p class="formDright">
-        <c:out value="${reqestScope.error}">
-        </c:out>
+
+
         test</p>
     </form>
   </section>

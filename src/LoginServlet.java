@@ -26,11 +26,11 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		res.getWriter().append("Served at: ").append(req.getContextPath());
 
 		// 遷移ページの指定
-		String page="login.jsp";
+		String page="loginOk.jsp";
 		// フォワード処理
 		RequestDispatcher rd=req.getRequestDispatcher(page);
 		rd.forward(req, res);
