@@ -30,9 +30,16 @@ public class LoginServlet extends HttpServlet {
 		res.getWriter().append("Served at: ").append(req.getContextPath());
 
 		// 遷移ページの指定
-		String page="loginOk.jsp";
+		String page = "loginOk.jsp";
+		// Form情報の取り出し
+		// エンコーディング方式の設定
+		req.setCharacterEncoding("utf-8");
+		// Idの取得
+		String pId = req.getParameter("pId");
+		// パスワードの取得
+		String pPass=req.getParameter("pPass");
 		// フォワード処理
-		RequestDispatcher rd=req.getRequestDispatcher(page);
+		RequestDispatcher rd = req.getRequestDispatcher(page);
 		rd.forward(req, res);
 
 	}
