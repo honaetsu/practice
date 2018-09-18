@@ -1,5 +1,6 @@
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -37,7 +38,18 @@ public class LoginServlet extends HttpServlet {
 		// Idの取得
 		String pId = req.getParameter("pId");
 		// パスワードの取得
-		String pPass=req.getParameter("pPass");
+		String pPass = req.getParameter("pPass");
+		// DAOの生成
+		AccountDAO dao = new AccountDAO("localhost", "loot", "password");
+		try {
+			// DB接続
+			dao.connect();
+//			ログイン可能か確認する
+
+		} catch (SQLException e) {
+
+		}
+
 		// フォワード処理
 		RequestDispatcher rd = req.getRequestDispatcher(page);
 		rd.forward(req, res);

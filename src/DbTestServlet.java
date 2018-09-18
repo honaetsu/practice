@@ -37,9 +37,8 @@ public class DbTestServlet extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 
 		try {
-			// Class.forName("com.mysql.jdbc.Driver");
-			Connection con = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8&serverTimezone=JST", "root", "password");
+//			Class.forName("com.mysql.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8&serverTimezone=JST", "root", "password");
 
 			// ステートメント生成
 			Statement stmt = con.createStatement();
@@ -70,8 +69,8 @@ public class DbTestServlet extends HttpServlet {
 			stmt.close();
 			con.close();
 
-			// } catch (ClassNotFoundException e) {
-			// System.out.println("ドライバを読み込めませんでした " + e);
+//		} catch (ClassNotFoundException e) {
+//			 System.out.println("ドライバを読み込めませんでした " + e);
 		} catch (SQLException e) {
 			System.out.println("データベース接続エラー" + e);
 		}
