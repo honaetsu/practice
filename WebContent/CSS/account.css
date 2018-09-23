@@ -15,7 +15,6 @@ body {
 	height: 490px;
 	width: 736px;
 }
-
 header {
 	background-image: url(../img/top.png);
 	height: 490px;
@@ -27,8 +26,8 @@ header {
 h1 {
 	font-size: 1.25rem;
 	text-indent: 1em;
+	border-bottom: 1px solid #4E3E2C;
 }
-
 header p {
 	text-indent: 1em;
 }
@@ -37,10 +36,13 @@ nav {
 	background-color: #399634;
 	overflow: hidden;
 	text-align: center;
+	border-bottom: 1px solid #FFFFFF;
+	border-top: 1px solid #FFFFFF;
 }
 nav ul li {
 	float: left;
 	width: 111px;
+	height: 32px;
 	border-right: 1px solid #FFFFFF;
 	padding-right: 8px;
 	padding-left: 8px;
@@ -49,19 +51,18 @@ nav li a {
 	color: #FFFFFF;
 	display: block;
 	width: 111px;
-	margin-left: -8px;
+	height: 32px;
 	padding-right: 8px;
 	padding-left: 8px;
-	
-
+	padding-top: 4px;
+	margin-left: -8px;
 }
 nav a:hover {
 	background-color: #246021;
 }
 article {
-	float: none;
 	clear: left;
-	overflow-y: hidden;
+	overflow: hidden;
 }
 h2 {
 	font-size: 1.1rem;
@@ -71,7 +72,7 @@ h2 {
 article p {
 	padding-left: 8px;
 	padding-right: 8px;
-
+	text-indent: 1em;
 }
 .left {
 	float: left;
@@ -89,8 +90,12 @@ article p {
 footer {
 	clear: both;
 	background-color: #68C963;
+	text-align: center;
+}
+small{
+	width: 80%;
 
 }
-footer p  {
-	text-align: center;
+section {
+	background-color: #FFFBDA;
 }

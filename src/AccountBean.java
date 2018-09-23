@@ -1,5 +1,6 @@
 
-public class Account {
+import java.io.Serializable;
+public class AccountBean implements Serializable{
 
 	// メンバ
 	private int userId;
@@ -7,7 +8,7 @@ public class Account {
 	private String mail;
 	private String name;
 
-	public Account() {
+	public AccountBean() {
 		super();
 	}
 
