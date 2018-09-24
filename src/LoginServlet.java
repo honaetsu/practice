@@ -44,8 +44,18 @@ public class LoginServlet extends HttpServlet {
 		try {
 			// DB接続
 			dao.connect();
-//			ログイン可能か確認する
+			// ログイン可能か確認する
+			// IsValidクラスのnew
+			IsValid ivd = new IsValid(pId, pPass);
+			boolean test = ivd.isValidTest(dao);
+			if (test) {
+				// ログイン成功時の画面遷移先ページの指定
+				page = "loginOk.jsp";
+				// リクエストオブジェクトに
 
+			} else {
+
+			}
 		} catch (SQLException e) {
 
 		}

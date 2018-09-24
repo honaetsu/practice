@@ -57,7 +57,7 @@ dl {
         </dl>
         <p>
           <input type="reset">
-          <input type="submit" value="送信">
+          <input type="submit" value="ログインする">
         </p>
       </div>
       <!--エラーメッセージをここで表示予定 -->
