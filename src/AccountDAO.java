@@ -50,6 +50,7 @@ public class AccountDAO {
 				aBean.setMail(res.getString("MAIL"));
 				aBean.setName(res.getString("NAME"));
 				aBean.setAge(res.getInt("AGE"));
+
 			}
 			// ログイン可能か判断する
 			IsValid isv=new IsValid();

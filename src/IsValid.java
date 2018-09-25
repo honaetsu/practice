@@ -14,7 +14,6 @@ public class IsValid {
 		try{
 
 
-
 		}catch(SQLException e){
 
 		}
