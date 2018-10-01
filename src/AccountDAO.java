@@ -10,6 +10,7 @@ public class AccountDAO {
 	private String user;
 	private String password;
 
+
 	// コンストラクタ
 	public AccountDAO(String server, String user, String password) {
 		this.server = server;
