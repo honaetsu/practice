@@ -63,6 +63,7 @@ public class AccountDAO {
 			int count = res.getRow();
 			// sentou ni
 
+
 		} catch (SQLException e) {
 
 		}
