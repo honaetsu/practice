@@ -1,8 +1,8 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class AccountDAO {
 	private Connection con;
@@ -32,20 +32,21 @@ public class AccountDAO {
 	}
 
 	// ログイン確認
-	public AccountBean getAccount(String pId) throws SQLException {
-		Statement stmt = null;
+	public AccountBean getAccount(String pId,String pPass) throws SQLException {
+		PreparedStatement stmt = null;
 		ResultSet res = null;
 		AccountBean aBean = null;
-		// テーブルからID検索し、結果からPASSを検索する
-		String sql = "SELECT * FROM account WHERE PASS=(SELECT PASS FROM account WHERE USER_ID =" + pId + ")";
-		aBean = new AccountBean();
+		// テーブルからID検索し、結果からPASSを検索する★★★
+		String sql = "SELECT * FROM account WHERE pass = ?=(SELECT PASS FROM account WHERE USER_ID = ? ";
+
 		try {
 			// ステートメントの作成
-			stmt = con.createStatement();
+			stmt = con.prepareStatement(sql);
 			// SQL実行,結果をresに
-			res = stmt.executeQuery(sql);
+			res = stmt.executeQuery();
 			// 結果をアカウントオブジェクトにセットする
 			if(res.next()){
+				aBean = new AccountBean();
 				aBean.setUserId(res.getInt("USER_ID"));
 				aBean.setPass(res.getString("PASS"));
 				aBean.setMail(res.getString("MAIL"));
@@ -53,20 +54,16 @@ public class AccountDAO {
 				aBean.setAge(res.getInt("AGE"));
 
 			}
-			// ログイン可能か判断する
-			IsValid isv=new IsValid();
-			Boolean test=isv.isValidTest(aBean);
-			//＞ココマデIsValidクラスを先に完成させること
-			// カーソルをResultSet オブジェクト内の最終行に移動
-			res.last();
-			// 現在の行の番号を取得
-			int count = res.getRow();
-			// sentou ni
 
-
-		} catch (SQLException e) {
-
+		}finally{
+			if(res != null){
+				res.close();
+			}
+			if(stmt !=null){
+				stmt.close();
+			}
 		}
+
 		return aBean;
 	}
 	//

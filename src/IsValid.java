@@ -9,7 +9,9 @@ public class IsValid {
 
 	// ログイン可能かどうか評価するメソッド
 	public boolean isValidTest(AccountBean aBean) {
-
-		return false;
+		if(aBean==null){
+			return false;
+		}
+		return true;
 	}
 }
