@@ -56,7 +56,7 @@ public class AccountDAO {
 			// ログイン可能か判断する
 			IsValid isv=new IsValid();
 			Boolean test=isv.isValidTest(aBean);
-//＞ココマデIsValidクラスを先に完成させること
+			//＞ココマデIsValidクラスを先に完成させること
 			// カーソルをResultSet オブジェクト内の最終行に移動
 			res.last();
 			// 現在の行の番号を取得
