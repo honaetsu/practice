@@ -42,7 +42,7 @@ dl {
     </ul>
   </nav>
   <section>
-    <form method="post" action="HelloGithub/Login">
+    <form method="post" action="Login">
       <h2>ログイン画面</h2>
       <div id="formD">
         <dl>
@@ -56,11 +56,12 @@ dl {
           </dd>
         </dl>
         <p>
-          <input type="reset">
+          <input type="reset" value="リセット">
           <input type="submit" value="ログインする">
         </p>
       </div>
       <!--エラーメッセージをここで表示予定 -->
+      <c:out value="${requestScope.error}"/>
       <p class="formDright">
 
 

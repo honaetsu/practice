@@ -18,9 +18,9 @@ public class AccountDAO {
 		this.password = password;
 	}
 
-	// 接続
+
 	public void connect() throws SQLException {
-		String url = "jdbc:mysql://" + server + "3306/practice?characterEncoding=UTF-8&serverTimezone=JST";
+		String url = "jdbc:mysql://" + server + ":3306/practice?characterEncoding=UTF-8&serverTimezone=JST";
 		con = DriverManager.getConnection(url, user, password);
 	}
 
@@ -37,12 +37,14 @@ public class AccountDAO {
 		ResultSet res = null;
 		AccountBean aBean = null;
 		// テーブルからID検索し、結果からPASSを検索する★★★
-		String sql = "SELECT * FROM account WHERE pass = ?=(SELECT PASS FROM account WHERE USER_ID = ? ";
+		String sql = "SELECT * FROM account WHERE USER_ID =? AND PASS=? ";
 
 		try {
 			// ステートメントの作成
 			stmt = con.prepareStatement(sql);
 			// SQL実行,結果をresに
+			stmt.setString(1,pId);
+			stmt.setString(2,pPass);
 			res = stmt.executeQuery();
 			// 結果をアカウントオブジェクトにセットする
 			if(res.next()){
@@ -52,7 +54,7 @@ public class AccountDAO {
 				aBean.setMail(res.getString("MAIL"));
 				aBean.setName(res.getString("NAME"));
 				aBean.setAge(res.getInt("AGE"));
-
+				System.out.println(aBean.getName());
 			}
 
 		}finally{
