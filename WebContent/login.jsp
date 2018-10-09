@@ -23,7 +23,7 @@ dl {
 	padding-bottom: 1em;
 }
 .formDright {
-	width: auto;
+	width: 80%;
 	text-align: center;
 	padding-right: 18px;
 }
@@ -61,11 +61,8 @@ dl {
         </p>
       </div>
       <!--エラーメッセージをここで表示予定 -->
-      <c:out value="${requestScope.error}"/>
-      <p class="formDright">
+     <p> <c:out value="${requestScope.error}"/></p>
 
-
-        test</p>
     </form>
   </section>
   <footer> <small>Copyright(c)2018 honaetsu,All rights reserved.lol</small> </footer>
