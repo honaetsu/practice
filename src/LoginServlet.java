@@ -57,7 +57,7 @@ public class LoginServlet extends HttpServlet {
 				// falseのとき
 				// リクエストオブジェクトにエラーメッセージを設定
 				req.setAttribute("error", "ユーザーIDまたはパスワードが正しくありません");
-			}
+			}		
 		} catch (SQLException e) {
 			e.printStackTrace();
 			req.setAttribute("error", "システムエラーです");
@@ -68,7 +68,6 @@ public class LoginServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-
 		// フォワード処理
 		RequestDispatcher rd = req.getRequestDispatcher(page);
 		rd.forward(req, res);
