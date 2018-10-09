@@ -29,9 +29,9 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		res.getWriter().append("Served at: ").append(req.getContextPath());
-
+		//サーバー自身がサーブレットに対して渡している。メインメソッドなし。サーブレットは（呼出されるのをまっている）口を開けてまってる。サーバーが開始する。
 		// 遷移ページの指定
-		String page = "loginOk.jsp";
+		String page = "login.jsp";
 		// Form情報の取り出し
 		// エンコーディング方式の設定
 		req.setCharacterEncoding("utf-8");
@@ -40,26 +40,34 @@ public class LoginServlet extends HttpServlet {
 		// パスワードの取得
 		String pPass = req.getParameter("pPass");
 		// DAOの生成
-		AccountDAO dao = new AccountDAO("localhost", "loot", "password");
+		AccountDAO dao = new AccountDAO("localhost", "root", "password");
 		try {
 			// DB接続
 			dao.connect();
 			// ログイン可能か確認する
-			// IsValidクラスのnew
-//			IsValid ivd = new IsValid(pId, pPass);
-//			boolean test = ivd.isValidTest(dao);
-//			if (test) {
-//				// ログイン成功時の画面遷移先ページの指定
-//				page = "loginOk.jsp";
-//				// リクエストオブジェクトに
-//
-//			} else {
-//
-//			}
+			AccountBean aBean = dao.getAccount(pId,pPass);
+			// ログイン可能か判断する
+			IsValid isv = new IsValid();
+			Boolean test = isv.isValidTest(aBean);
+			if (test) {
+				// trueのとき、ページ設定およびAccountオブジェクトをreqにセット
+				page = "loginOk.jsp";
+				req.setAttribute("accountB", aBean);
+			} else {
+				// falseのとき
+				// リクエストオブジェクトにエラーメッセージを設定
+				req.setAttribute("error", "ユーザーIDまたはパスワードが正しくありません");
+			}		
 		} catch (SQLException e) {
-
+			e.printStackTrace();
+			req.setAttribute("error", "システムエラーです");
+		} finally {
+			try {
+				dao.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
-
 		// フォワード処理
 		RequestDispatcher rd = req.getRequestDispatcher(page);
 		rd.forward(req, res);
