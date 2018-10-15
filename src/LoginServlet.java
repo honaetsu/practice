@@ -60,9 +60,12 @@ public class LoginServlet extends HttpServlet {
 
 				req.setAttribute("error", "ユーザーIDまたはパスワードが正しくありません");
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
+			System.out.println("以下printStackTrace()");
 			e.printStackTrace();
 			req.setAttribute("error", "システムエラーです");
+			page="systemerror.jsp";
+
 		} finally {
 			try {
 				dao.close();
@@ -71,7 +74,6 @@ public class LoginServlet extends HttpServlet {
 			}
 		}
 		// フォワード処理
-//		res.setContentType("text/html; charset=UTF-8");
 		RequestDispatcher rd = req.getRequestDispatcher(page);
 		rd.forward(req, res);
 
