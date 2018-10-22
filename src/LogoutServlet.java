@@ -29,15 +29,18 @@ public class LogoutServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		// 遷移画面の設定
-		String page = "logout.jsp";
+		String page = "login.jsp";
 
 		// セッション情報があれば取得し、
-		HttpSession aco=req.getSession(false);
+		HttpSession session = req.getSession(false);
 
 		// もしセッションがnullでなければセッションを閉じる
-//		if(){
-//
-//		}
+		if (session != null) {
+			session.invalidate();
+		}
+		// ログアウトメッセージをリクエストにセット
+
+		req.setAttribute("logoutmes", "ログアウトしました");
 		// フォワード処理
 		RequestDispatcher rd = req.getRequestDispatcher(page);
 		rd.forward(req, res);

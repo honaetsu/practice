@@ -9,11 +9,17 @@
 </head>
 <body>
       <p><c:out value="${requestScope.accountB.name}"/>さん</p>
-      <p>ログアウト</p>
+      <p><a href="Logout">ログアウト</a></p>
       <p><a href="index.html">Topへもどる</a></p>
-      
-<p>ログインできました</p>
-<p>商品一覧検索</p>
 
+<p>ログインできました</p>
+<p>商品検索</p>
+<p>商品一覧</p>
+<p>検索キーワード</p>
+<table>
+<tr><td>商品</td><td>商品名</td><td>金額</td></tr>
+<tr><td></td><td>商品名</td><td>金額</td></tr>
+
+</table>
 </body>
 </html>
