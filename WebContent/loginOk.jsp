@@ -8,14 +8,17 @@
 <title>ログインしました</title>
 </head>
 <body>
-      <p><c:out value="${requestScope.accountB.name}"/>さん</p>
+      <p><c:out value="${sessionScope.accountB.name}"/>さん</p>
       <p><a href="Logout">ログアウト</a></p>
       <p><a href="index.html">Topへもどる</a></p>
 
 <p>ログインできました</p>
-<p>商品検索</p>
+<p><a href="/Search">商品検索</a></p>
 <p>商品一覧</p>
-<p>検索キーワード</p>
+<form action="post">
+<p><imput type="text">検索キーワード</p>
+</form>
+
 <table>
 <tr><td>商品</td><td>商品名</td><td>金額</td></tr>
 <tr><td></td><td>商品名</td><td>金額</td></tr>

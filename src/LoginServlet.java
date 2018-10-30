@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class LoginServlet
@@ -52,7 +53,8 @@ public class LoginServlet extends HttpServlet {
 			if (test) {
 				// trueのとき、ページ設定およびAccountオブジェクトをreqにセット
 				page = "loginOk.jsp";
-				req.setAttribute("accountB", aBean);
+				HttpSession session=req.getSession();
+				session.setAttribute("accountB", aBean);
 				System.out.println(aBean.getName());
 			} else {
 				// falseのとき
