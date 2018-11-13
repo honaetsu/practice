@@ -34,10 +34,12 @@
 	</form>
 
 	<table>
+		<c:out value="${requestScope.msg}"></c:out>
 		<c:forEach var="goods" items="${requestScope.glist}" >
 			<tr>
+				<td><td><img src="img/<c:out value="${goods.gId}"/>.jpg"></td>
 				<td>商品<c:out value="${goods.gName}"/></td>
-				<td>金額<c:out value="${goods.gName}"/></td>
+				<td>金額<c:out value="${goods.gPraice}"/></td>
 				<td>商品内容<c:out value="${goods.gContents}"/></td>
 			</tr>
 		</c:forEach>

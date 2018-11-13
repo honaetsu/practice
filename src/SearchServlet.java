@@ -45,7 +45,11 @@ public class SearchServlet extends HttpServlet {
 			gdao.connect();
 			// 商品検索する
 			ArrayList<GoodsBean> glist = gdao.getGoods(kyeword);
+			if(glist.size()<1){
+				req.setAttribute("msg","検索キーワド「"+kyeword+"」に該当する商品はありません");
+			}else{
 			req.setAttribute("glist", glist);
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			req.setAttribute("error", "システムエラーです");

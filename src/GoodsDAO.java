@@ -52,7 +52,7 @@ public class GoodsDAO {
 				goods.setgId(res.getInt("g_id"));
 				goods.setgName(res.getString("g_name"));
 				goods.setgPraice(res.getInt("g_price"));
-				goods.setgContents(res.getString("g_cotents"));
+				goods.setgContents(res.getString("g_contents"));
 				goods.setgFlag(res.getBoolean("g_flag"));
 				list.add(goods);
 			}
