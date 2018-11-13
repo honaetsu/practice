@@ -32,9 +32,9 @@
 				value="検索">
 		</p>
 	</form>
-
+	<span><c:out value="${requestScope.msg}"></c:out></span>
 	<table>
-		<c:out value="${requestScope.msg}"></c:out>
+
 		<c:forEach var="goods" items="${requestScope.glist}" >
 			<tr>
 				<td><td><img src="img/<c:out value="${goods.gId}"/>.jpg"></td>
