@@ -1,4 +1,5 @@
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,12 +8,21 @@ import java.util.ArrayList;
 public class GoodsDAO {
 	// コネクションクラスのオブジェクト
 	private Connection con;
+	private String server;
+	private String user;
+	private String password;
 
-	// コネクションオブジェクトを受け取ってメンバに
-	public GoodsDAO(Connection con) {
+	// コンストラクタ
+	public GoodsDAO(String server, String user, String password) {
+		this.server = server;
+		this.user = user;
+		this.password = password;
 
-		this.con = con;
+	}
 
+	public void connect() throws SQLException {
+		String url = "jdbc:mysql://" + server + ":3306/practice?characterEncoding=UTF-8&serverTimezone=JST";
+		con = DriverManager.getConnection(url, user, password);
 	}
 
 	// 接続のクローズ
@@ -22,14 +32,13 @@ public class GoodsDAO {
 		}
 	}
 
-	// 一覧表示（全件選択）
+	// 商品検索
 	public ArrayList<GoodsBean> getGoods(String keyword) throws SQLException {
 
 		ResultSet res = null;
 		PreparedStatement stmt = null;
 		ArrayList<GoodsBean> list = new ArrayList<GoodsBean>();
-		String sql = "SELECT * FROM goods where g_name like ?";
-
+		String sql = "SELECT * FROM goods WHERE g_name like ?";
 
 		// goodsテーブルへSQL実行
 		try {
@@ -39,7 +48,7 @@ public class GoodsDAO {
 
 			// レスポンスからオブジェクトの取得
 			while (res.next()) {
-				GoodsBean goods=new GoodsBean();
+				GoodsBean goods = new GoodsBean();
 				goods.setgId(res.getInt("g_id"));
 				goods.setgName(res.getString("g_name"));
 				goods.setgPraice(res.getInt("g_price"));
@@ -49,10 +58,10 @@ public class GoodsDAO {
 			}
 
 		} finally {
-			if(res !=null){
+			if (res != null) {
 				res.close();
 			}
-			if(stmt !=null){
+			if (stmt != null) {
 				stmt.close();
 			}
 		}
