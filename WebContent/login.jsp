@@ -30,6 +30,8 @@ dl {
 	text-align: center;
 	padding-right: 18px;
 }
+body {
+}
 </style>
 </head>
 <body>
