@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class LoginServlet
@@ -28,13 +29,13 @@ public class LoginServlet extends HttpServlet {
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		res.getWriter().append("Served at: ").append(req.getContextPath());
-		//サーバー自身がサーブレットに対して渡している。メインメソッドなし。サーブレットは（呼出されるのをまっている）口を開けてまってる。サーバーが開始する。
+		// サーバー自身がサーブレットに対して渡している。メインメソッドなし。
+		// サーブレットは（呼出されるのをまっている）口を開けてまってる。サーバーが開始する。
 		// 遷移ページの指定
 		String page = "login.jsp";
 		// Form情報の取り出し
 		// エンコーディング方式の設定
-		req.setCharacterEncoding("utf-8");
+		req.setCharacterEncoding("UTF-8");
 		// Idの取得
 		String pId = req.getParameter("pId");
 		// パスワードの取得
@@ -45,22 +46,28 @@ public class LoginServlet extends HttpServlet {
 			// DB接続
 			dao.connect();
 			// ログイン可能か確認する
-			AccountBean aBean = dao.getAccount(pId,pPass);
+			AccountBean aBean = dao.getAccount(pId, pPass);
 			// ログイン可能か判断する
 			IsValid isv = new IsValid();
 			Boolean test = isv.isValidTest(aBean);
 			if (test) {
 				// trueのとき、ページ設定およびAccountオブジェクトをreqにセット
 				page = "loginOk.jsp";
-				req.setAttribute("accountB", aBean);
+				HttpSession session=req.getSession();
+				session.setAttribute("accountB", aBean);
+				System.out.println(aBean.getName());
 			} else {
 				// falseのとき
 				// リクエストオブジェクトにエラーメッセージを設定
+
 				req.setAttribute("error", "ユーザーIDまたはパスワードが正しくありません");
-			}		
-		} catch (SQLException e) {
+			}
+		} catch (Exception e) {
+			System.out.println("以下printStackTrace()");
 			e.printStackTrace();
 			req.setAttribute("error", "システムエラーです");
+			page="systemerror.jsp";
+
 		} finally {
 			try {
 				dao.close();

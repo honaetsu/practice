@@ -10,7 +10,7 @@
 	list-style-type: none;
 }
 body {
-	background-image: url(../img/top.png);
+	background-image: none;
 	background-repeat: no-repeat;
 	height: 490px;
 	width: 736px;

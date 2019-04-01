@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>メニュー画面ですよ</title>
+<title>ユーザー登録</title>
 <link href="CSS/account.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 section {
@@ -30,47 +30,47 @@ dl {
 	text-align: center;
 	padding-right: 18px;
 }
+
 body {
+
 }
 </style>
 </head>
 <body>
 	<div id="contener">
 		<header>
-			<h1>Accountテストシステム</h1>
-			<p>ログイン画面</p>
+			<h1>ユーザー登録</h1>
+			<p>ユーザーID確認画面</p>
 		</header>
 		<nav>
 			<ul>
-				<li><a href="index.html">ホーム</a></li>
-				<li><a href="#">ユーザー登録</a></li>
+				<li><a href="index.html">Topへもどる</a></li>
+
 			</ul>
 		</nav>
 		<section>
-			<form method="post" action="Login">
-				<h2>ログイン画面</h2>
+			<form method="post" action="SignUp">
+				<h2>新規登録画面</h2>
 				<div id="formD">
 					<dl>
-						<dt>ログインＩＤを入力</dt>
+						<dt>新規作成ＩＤを入力して利用可能か確認してください。</dt>
 						<dd>
 							<input type="text" name="pId">
 						</dd>
-						<dt>ログインパスワードを入力</dt>
-						<dd>
-							<input type="text" name="pPass">
-						</dd>
 					</dl>
+					<!--エラーメッセージをここで表示 -->
+					<p>
+						<c:out value="${requestScope.pId}"/>
+						<c:out value="${requestScope.emsg}" />
+					</p>
 					<p>
 						<input type="reset" value="リセット"> <input type="submit"
-							value="ログインする">
+							value="確認">
 					</p>
 				</div>
-				<!--エラーメッセージをここで表示予定 -->
+
 				<p>
-					<c:out value="${requestScope.error}" />
-				</p>
-				<p>
-					<c:out value="${requestScope.logoutmes}" />
+					<c:out value="${requestScope.errormes}" />
 				</p>
 
 			</form>
