@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mysql.cj.x.protobuf.MysqlxDatatypes.Scalar.String;
+
 /**
- * Servlet implementation class LoginServlet
+ * サーブレット implementation class LoginServlet
  */
 @WebServlet("/Login")
 public class LoginServlet extends HttpServlet {
@@ -57,7 +59,7 @@ public class LoginServlet extends HttpServlet {
 				// falseのとき
 				// リクエストオブジェクトにエラーメッセージを設定
 				req.setAttribute("error", "ユーザーIDまたはパスワードが正しくありません");
-			}		
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			req.setAttribute("error", "システムエラーです");
